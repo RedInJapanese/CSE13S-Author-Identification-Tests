@@ -1,4 +1,4 @@
-# CSE13S Author Indification Tests
+# CSE13S Author Identification Tests
  Some small tests for each module Professor Darrell Long's assignment 7. 
 
 # Description
