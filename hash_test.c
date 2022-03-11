@@ -15,10 +15,13 @@ int main(void) {
 	if(test == NULL) {
 		puts("TEST NODE IS NULL");
 	}
-
+	puts("INSERT");
 	ht_insert(ht, "lol");
 
-	ht_lookup(ht, "lol");
+	puts("LOOKUP");
+	if(ht_lookup(ht, "lol")) {
+		puts("LOL LOOKUP");
+	}
 
 	printf("\nCURRENT HASH TABLE");
 	ht_print(ht);
@@ -27,8 +30,9 @@ int main(void) {
 	printf("\nCURRENT HASH TABLE");
 	ht_print(ht);
 
-	printf("\nHT_LOOKUP");
-	ht_lookup(ht, "pog"); 
+	if(ht_lookup(ht, "pog")) {
+		puts("POG LOOKUP"); 
+	}
 	//node_print(b);
 
 	ht_insert(ht, "pog");
@@ -39,24 +43,25 @@ int main(void) {
 	printf("\nCURRENT HASH TABLE");
 	ht_print(ht);
 
+	puts("DELETING HASH TABLE");
 	ht_delete(&ht);
 
-	 HashTable *ht1 = ht_create(4);
-	 printf("CURRENT TABLE SIZE: %u\n", ht_size(ht1));
+	HashTable *ht1 = ht_create(4);
+	printf("CURRENT TABLE SIZE: %u\n", ht_size(ht1));
 
-	 ht_insert(ht1 , "hello");
-	 ht_insert(ht1 , "world");
-	 ht_print(ht1);
-	 HashTableIterator *hti = hti_create(ht1);
-	 Node *n = NULL;
-	 while ((n = ht_iter(hti)) != NULL) {
-		 printf("%s\n", n->word);
-	 }
-	 puts("BEFORE ITERATOR DELETE");
-	 hti_delete (&hti);
-	 puts("BEFORE HASH DELETE");
-	 ht_delete (&ht1);
-	 //printf("*************************************************\n");
+	ht_insert(ht1 , "hello");
+	ht_insert(ht1 , "world");
+	ht_print(ht1);
+	HashTableIterator *hti = hti_create(ht1);
+	Node *n = NULL;
+	while ((n = ht_iter(hti)) != NULL) {
+		printf("%s\n", n->word);
+	}
+	puts("BEFORE ITERATOR DELETE");
+	hti_delete (&hti);
+	puts("BEFORE HASH DELETE");
+	ht_delete (&ht1);
+	printf("*************************************************\n");
 
 }
 
